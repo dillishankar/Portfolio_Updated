@@ -253,37 +253,40 @@
         }
 
         /* ===============================
-   DESKTOP ORBIT (WIDE & CLEAN)
+   DESKTOP ORBIT (BALANCED)
    =============================== */
 
+        /* Top Row */
         .active .m-1 {
             opacity: 1;
-            transform: translate(-320px, -220px) scale(1) rotate(-12deg);
+            transform: translate(-320px, -200px) scale(1) rotate(-8deg);
         }
 
         .active .m-2 {
             opacity: 1;
-            transform: translate(220px, -230px) scale(1) rotate(10deg);
+            transform: translate(180px, -220px) scale(1) rotate(8deg);
         }
 
+        /* Middle Row */
         .active .m-3 {
             opacity: 1;
-            transform: translate(-380px, 0px) scale(1) rotate(-8deg);
+            transform: translate(-380px, 20px) scale(1) rotate(-5deg);
         }
 
         .active .m-4 {
             opacity: 1;
-            transform: translate(300px, 40px) scale(1) rotate(15deg);
+            transform: translate(240px, 40px) scale(1) rotate(5deg);
         }
 
+        /* Bottom Row */
         .active .m-5 {
             opacity: 1;
-            transform: translate(-220px, 230px) scale(1) rotate(-15deg);
+            transform: translate(-260px, 240px) scale(1) rotate(-10deg);
         }
 
         .active .m-6 {
             opacity: 1;
-            transform: translate(180px, 240px) scale(1) rotate(8deg);
+            transform: translate(120px, 260px) scale(1) rotate(10deg);
         }
 
         /* Floating animation (SAFE – no transform override) */
@@ -305,61 +308,56 @@
 
         @media (max-width: 768px) {
             .moodboard-container {
-                height: 550px;
+                height: 600px;
+                /* Increased height to give cards breathing room */
                 width: 100%;
                 overflow: visible;
             }
 
             .mood-item {
-                width: 90px;
+                width: 80px;
+                /* Slightly smaller cards to fit the narrow screen */
             }
 
             .mood-center {
-                width: 170px;
-                height: 230px;
+                width: 160px;
+                height: 220px;
                 z-index: 100;
             }
 
             /* ===============================
-       LEFT SIDE - (STAYS WIDE)
+       BALANCED MOBILE ORBIT
        =============================== */
+
+            /* Top Row - Spread out wide */
             .active .m-1 {
-                transform: translate(-165px, -130px) scale(0.9) rotate(-12deg);
+                transform: translate(-150px, -160px) scale(1) rotate(-12deg);
                 opacity: 1;
             }
-
-            .active .m-3 {
-                transform: translate(-175px, 20px) scale(0.9) rotate(-8deg);
-                opacity: 1;
-            }
-
-            .active .m-5 {
-                transform: translate(-140px, 170px) scale(0.9) rotate(-15deg);
-                opacity: 1;
-            }
-
-        }
-
-        @media (max-width: 768px) {
-            /* ... keep your existing container and left-side (m-1, m-3, m-5) styles ... */
-
-            /* RIGHT SIDE - (MODIFIED FOR TIGHTER FIT) */
 
             .active .m-2 {
-                /* Top Right - Already good at 120px */
-                transform: translate(120px, -140px) rotate(10deg);
+                transform: translate(70px, -170px) scale(1) rotate(10deg);
+                opacity: 1;
+            }
+
+            /* Middle Row - Pushed to the very edges */
+            .active .m-3 {
+                transform: translate(-165px, 10px) scale(1) rotate(-8deg);
                 opacity: 1;
             }
 
             .active .m-4 {
-                /* Middle Right - PULLED IN (from 135px to 105px) */
-                transform: translate(105px, 20px) rotate(6deg);
+                transform: translate(85px, 20px) scale(1) rotate(8deg);
+            }
+
+            /* Bottom Row - Spread out wide */
+            .active .m-5 {
+                transform: translate(-140px, 180px) scale(1) rotate(-15deg);
                 opacity: 1;
             }
 
             .active .m-6 {
-                /* Bottom Right - PULLED IN (from 115px to 85px) */
-                transform: translate(85px, 175px) rotate(12deg);
+                transform: translate(60px, 190px) scale(1) rotate(12deg);
                 opacity: 1;
             }
         }
