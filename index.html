@@ -338,25 +338,29 @@
                 opacity: 1;
             }
 
-            /* ===============================
-       RIGHT SIDE - (MOVE CLOSE TO PICTURE)
-       =============================== */
+        }
+
+        @media (max-width: 768px) {
+            /* ... keep your existing container and left-side (m-1, m-3, m-5) styles ... */
+
+            /* RIGHT SIDE - (MODIFIED FOR TIGHTER FIT) */
+
             .active .m-2 {
-                /* Top Right - Very close now */
+                /* Top Right - Already good at 120px */
+                transform: translate(120px, -140px) rotate(10deg);
                 opacity: 1;
-                transform: translate(95px, -135px) scale(0.9) rotate(8deg);
             }
 
             .active .m-4 {
-                /* Middle Right - Tucked next to picture */
+                /* Middle Right - PULLED IN (from 135px to 105px) */
+                transform: translate(105px, 20px) rotate(6deg);
                 opacity: 1;
-                transform: translate(105px, 25px) scale(0.9) rotate(5deg);
             }
 
             .active .m-6 {
-                /* Bottom Right - Tucked next to picture */
+                /* Bottom Right - PULLED IN (from 115px to 85px) */
+                transform: translate(85px, 175px) rotate(12deg);
                 opacity: 1;
-                transform: translate(90px, 175px) scale(0.9) rotate(10deg);
             }
         }
     </style>
@@ -647,7 +651,7 @@
                     class="w-full h-full object-cover rounded-lg">
             </div>
 
-            <div class="mood-item m-1 animate-float"><img src="d1.png" class="rounded-lg"></div>
+            <div class="mood-item m-1 animate-float"><img src="Dilli_poster.png" class="rounded-lg"></div>
             <div class="mood-item m-2 animate-float"><img src="unnamed.png" class="rounded-lg"></div>
             <div class="mood-item m-3 animate-float"><img src="c1.png" class="rounded-lg"></div>
             <div class="mood-item m-4 animate-float"><img src="dd.png" class="rounded-lg"></div>
