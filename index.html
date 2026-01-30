@@ -305,65 +305,58 @@
 
         @media (max-width: 768px) {
             .moodboard-container {
-                height: 520px;
+                height: 550px;
                 width: 100%;
-                perspective: none;
-                /* Flattens them to the screen as requested */
+                overflow: visible;
             }
 
             .mood-item {
-                width: 95px;
-                transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+                width: 90px;
             }
 
             .mood-center {
-                width: 180px;
-                height: 240px;
+                width: 170px;
+                height: 230px;
                 z-index: 100;
-                /* Balanced purple glow */
-                box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
             }
 
             /* ===============================
-       LEFT SIDE (Perfectly Balanced)
+       LEFT SIDE - (STAYS WIDE)
        =============================== */
             .active .m-1 {
-                /* Top Left */
-                transform: translate(-130px, -145px) rotate(-10deg);
+                transform: translate(-165px, -130px) scale(0.9) rotate(-12deg);
                 opacity: 1;
             }
 
             .active .m-3 {
-                /* Middle Left */
-                transform: translate(-145px, 15px) rotate(-6deg);
+                transform: translate(-175px, 20px) scale(0.9) rotate(-8deg);
                 opacity: 1;
             }
 
             .active .m-5 {
-                /* Bottom Left */
-                transform: translate(-115px, 175px) rotate(-12deg);
+                transform: translate(-140px, 170px) scale(0.9) rotate(-15deg);
                 opacity: 1;
             }
 
             /* ===============================
-       RIGHT SIDE (Exact Mirror Images)
+       RIGHT SIDE - (MOVE CLOSE TO PICTURE)
        =============================== */
             .active .m-2 {
-                /* Top Right - Mirror of m-1 */
-                transform: translate(130px, -145px) rotate(10deg);
+                /* Top Right - Very close now */
                 opacity: 1;
+                transform: translate(95px, -135px) scale(0.9) rotate(8deg);
             }
 
             .active .m-4 {
-                /* Middle Right - Mirror of m-3 */
-                transform: translate(145px, 15px) rotate(6deg);
+                /* Middle Right - Tucked next to picture */
                 opacity: 1;
+                transform: translate(105px, 25px) scale(0.9) rotate(5deg);
             }
 
             .active .m-6 {
-                /* Bottom Right - Mirror of m-5 */
-                transform: translate(115px, 175px) rotate(12deg);
+                /* Bottom Right - Tucked next to picture */
                 opacity: 1;
+                transform: translate(90px, 175px) scale(0.9) rotate(10deg);
             }
         }
     </style>
