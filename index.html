@@ -1026,83 +1026,210 @@
 
 
     <!--Experience-->
-    <section id="experience" class="py-20 px-6 max-w-4xl mx-auto border-t border-zinc-900">
-        <h2 class="text-3xl serif text-center text-purple-400 mb-2">Where I've Grown</h2>
-        <p class="text-zinc-300 text-center mb-14 text-lg italic serif">Real work. Real lessons. Real impact.</p>
+    <!--Experience Section Reimagined (Dotted Path Fix)-->
+    <section id="experience" class="py-24 bg-black px-6 border-t border-zinc-900 relative overflow-hidden">
 
-        <div class="relative">
-            <!-- Vertical Timeline Line -->
-            <div class="absolute left-6 top-0 bottom-0 w-px bg-zinc-800 md:left-1/2"></div>
+        <!-- SVG BACKGROUND PATH: Mimicking the dynamic dotted trace lines from the reference layout -->
+        <div class="hidden md:block absolute inset-0 w-full h-full pointer-events-none -z-10 opacity-20">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+                <!-- Dotted arc connecting path trailing behind cards -->
+                <path d="M -50,250 Q 300,50 600,320 T 1250,200" stroke="#A855F7" stroke-width="1.5"
+                    stroke-dasharray="6 8" />
+                <path d="M 100,400 Q 500,200 1100,450" stroke="#ffffff" stroke-width="1" stroke-dasharray="4 6" />
+            </svg>
+        </div>
 
-            <!-- Experience Card -->
-            <div class="relative flex flex-col md:flex-row md:justify-end mb-12 group">
+        <div class="max-w-6xl mx-auto relative z-10">
 
-                <!-- Timeline Dot -->
-                <div
-                    class="absolute left-6 top-6 w-3 h-3 rounded-full bg-purple-500 border-2 border-black md:left-1/2 -translate-x-1/2 z-10">
-                </div>
-
-                <!-- Card (right side on desktop, full width on mobile) -->
-                <div class="ml-14 md:ml-0 md:w-5/12 md:mr-[calc(50%+2rem)]">
-                    <div
-                        class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-300 group-hover:border-purple-500 group-hover:shadow-[0_0_25px_rgba(168,85,247,0.15)]">
-
-                        <!-- Date Badge -->
-                        <span
-                            class="inline-block text-[10px] uppercase tracking-widest text-purple-400 bg-purple-950 border border-purple-800 px-3 py-1 rounded-full mb-4">
-                            Feb 2026 – Mar 2026
-                        </span>
-
-                        <!-- Role & Type -->
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="text-[10px] uppercase tracking-widest text-zinc-500">Internship</span>
-                            <span
-                                class="text-[10px] text-purple-400 bg-purple-950 border border-purple-800 px-2 py-0.5 rounded-full">Onsite</span>
-                        </div>
-
-                        <h3 class="text-white font-semibold text-lg serif mb-1">Digital Marketing Intern</h3>
-                        <p class="text-purple-400 text-sm font-medium mb-4">Big-space Coworking & Business Centre,
-                            Guindy, Chennai</p>
-
-                        <!-- Achievements -->
-                        <ul class="space-y-2 text-sm text-zinc-400">
-                            <li class="flex items-start gap-2">
-                                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>
-                                Contributed to the company's official website as part of digital marketing initiatives.
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>
-                                Performed content optimization to improve online presence and search engine visibility.
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>
-                                Assisted in planning and executing online marketing strategies and campaigns.
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0"></span>
-                                Recognized for being sincere, dedicated, and hardworking throughout the internship.
-                            </li>
-                        </ul>
-
-                        <!-- Tags -->
-                        <div class="flex flex-wrap gap-2 mt-5">
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-zinc-500 border border-zinc-700 px-2 py-1 rounded-full">SEO</span>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-zinc-500 border border-zinc-700 px-2 py-1 rounded-full">Content
-                                Optimization</span>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-zinc-500 border border-zinc-700 px-2 py-1 rounded-full">Digital
-                                Marketing</span>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-zinc-500 border border-zinc-700 px-2 py-1 rounded-full">Campaigns</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- Section Header Layout -->
+            <div class="mb-16 max-w-xl">
+                <span
+                    class="inline-block text-[11px] uppercase tracking-widest text-purple-400 bg-purple-950/40 border border-purple-800/40 px-3 py-1 rounded-full mb-3">
+                    Journey & Growth
+                </span>
+                <h2 class="text-4xl md:text-5xl serif text-white font-medium tracking-tight mb-4">
+                    Where I've Grown
+                </h2>
+                <p class="text-zinc-400 text-sm leading-relaxed italic serif">
+                    Real work. Real lessons. Real business impact mapped across analytical data frameworks and growth
+                    marketing strategies.
+                </p>
             </div>
 
-            <!-- ADD MORE EXPERIENCE CARDS BELOW THIS COMMENT IN THE SAME FORMAT -->
+            <!-- Floating Cards Matrix Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start pt-8">
 
+                <!-- CARD 01: Original Experience -->
+                <div
+                    class="bg-zinc-950/90 backdrop-blur-sm border border-zinc-800/80 rounded-[32px] p-8 shadow-xl md:-rotate-2 transition-all duration-500 hover:rotate-0 hover:-translate-y-3 hover:border-purple-500 hover:shadow-[0_20px_40px_rgba(168,85,247,0.1)] group flex flex-col justify-between min-h-[460px]">
+                    <div>
+                        <!-- Top Header Ring -->
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="text-xs font-mono text-zinc-600 bg-zinc-900 w-10 h-10 rounded-full flex items-center justify-center border border-zinc-800 font-bold">
+                                01
+                            </div>
+                            <span
+                                class="text-[10px] font-medium tracking-wider uppercase text-purple-400 bg-purple-950/60 border border-purple-800/60 px-3 py-1 rounded-full">
+                                Feb 2026 – Mar 2026
+                            </span>
+                        </div>
+
+                        <!-- Core Meta -->
+                        <div class="mb-4">
+                            <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-semibold mb-1">Internship
+                                • Onsite</p>
+                            <h3
+                                class="text-white font-semibold text-xl serif group-hover:text-purple-400 transition-colors">
+                                Digital Marketing Intern</h3>
+                            <p class="text-zinc-400 text-xs mt-1">Big-space Coworking & Business Centre, Guindy</p>
+                        </div>
+
+                        <!-- Main Responsibilities -->
+                        <ul class="space-y-2.5 text-xs text-zinc-400/90 font-light leading-relaxed mt-4">
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1 h-1 rounded-full bg-purple-500 flex-shrink-0"></span>
+                                Contributed to the official enterprise platform website deployment strategies.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1 h-1 rounded-full bg-purple-500 flex-shrink-0"></span>
+                                Handled continuous digital content optimization structures to improve global search
+                                discoverability.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1 h-1 rounded-full bg-purple-500 flex-shrink-0"></span>
+                                Managed structural data insights to assist workflow metrics and visibility
+                                configurations.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech Pillars Stacked at Base -->
+                    <div class="flex flex-wrap gap-1.5 mt-8 border-t border-zinc-900 pt-4">
+                        <span
+                            class="text-[9px] uppercase tracking-wider text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">SEO</span>
+                        <span
+                            class="text-[9px] uppercase tracking-wider text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">Optimization</span>
+                        <span
+                            class="text-[9px] uppercase tracking-wider text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">Marketing</span>
+                    </div>
+                </div>
+
+                <!-- CARD 02: Demo Experience (Data Analysis) -->
+                <div
+                    class="bg-zinc-950/90 backdrop-blur-sm border border-zinc-800/80 rounded-[32px] p-8 shadow-xl md:rotate-3 md:translate-y-8 transition-all duration-500 hover:rotate-0 hover:-translate-y-3 hover:border-purple-500 hover:shadow-[0_20px_40px_rgba(168,85,247,0.1)] group flex flex-col justify-between min-h-[460px]">
+                    <div>
+                        <!-- Top Header Ring -->
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="text-xs font-mono text-zinc-600 bg-zinc-900 w-10 h-10 rounded-full flex items-center justify-center border border-zinc-800 font-bold">
+                                02
+                            </div>
+                            <span
+                                class="text-[10px] font-medium tracking-wider uppercase text-purple-400 bg-purple-950/60 border border-purple-800/60 px-3 py-1 rounded-full">
+                                Apr 2026 – Present
+                            </span>
+                        </div>
+
+                        <!-- Core Meta -->
+                        <div class="mb-4">
+                            <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-semibold mb-1">Project
+                                Build • Remote</p>
+                            <h3
+                                class="text-white font-semibold text-xl serif group-hover:text-purple-400 transition-colors">
+                                Data Analyst Developer</h3>
+                            <p class="text-zinc-400 text-xs mt-1">Analytics Framework Ecosystems</p>
+                        </div>
+
+                        <!-- Main Responsibilities -->
+                        <ul class="space-y-2.5 text-xs text-zinc-400/90 font-light leading-relaxed mt-4">
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1 h-1 rounded-full bg-purple-500 flex-shrink-0"></span>
+                                Designed comprehensive data validation queries across complex relational MySQL schemas.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1 h-1 rounded-full bg-purple-500 flex-shrink-0"></span>
+                                Engineered analytical business intelligence reports parsing raw marketing campaign
+                                results.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1 h-1 rounded-full bg-purple-500 flex-shrink-0"></span>
+                                Streamlined unstructured transactional parameters into actionable transformation layers.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech Pillars Stacked at Base -->
+                    <div class="flex flex-wrap gap-1.5 mt-8 border-t border-zinc-900 pt-4">
+                        <span
+                            class="text-[9px] uppercase tracking-wider text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">MySQL</span>
+                        <span
+                            class="text-[9px] uppercase tracking-wider text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">Python</span>
+                        <span
+                            class="text-[9px] uppercase tracking-wider text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">Power
+                            BI</span>
+                    </div>
+                </div>
+
+                <!-- CARD 03: Demo Experience (Campaign Specialist) -->
+                <div
+                    class="bg-zinc-950/90 backdrop-blur-sm border border-zinc-800/80 rounded-[32px] p-8 shadow-xl md:-rotate-1 md:translate-y-2 transition-all duration-500 hover:rotate-0 hover:-translate-y-3 hover:border-purple-500 hover:shadow-[0_20px_40px_rgba(168,85,247,0.1)] group flex flex-col justify-between min-h-[460px]">
+                    <div>
+                        <!-- Top Header Ring -->
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="text-xs font-mono text-zinc-600 bg-zinc-900 w-10 h-10 rounded-full flex items-center justify-center border border-zinc-800 font-bold">
+                                01
+                            </div>
+                            <span
+                                class="text-[10px] font-medium tracking-wider uppercase text-purple-400 bg-purple-950/60 border border-purple-800/60 px-3 py-1 rounded-full">
+                                Concept Phase
+                            </span>
+                        </div>
+
+                        <!-- Core Meta -->
+                        <div class="mb-4">
+                            <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-semibold mb-1">Strategy
+                                Track</p>
+                            <h3
+                                class="text-white font-semibold text-xl serif group-hover:text-purple-400 transition-colors">
+                                Growth & Campaign Specialist</h3>
+                            <p class="text-zinc-400 text-xs mt-1">Independent Implementation Lab</p>
+                        </div>
+
+                        <!-- Main Responsibilities -->
+                        <ul class="space-y-2.5 text-xs text-zinc-400/90 font-light leading-relaxed mt-4">
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1 h-1 rounded-full bg-purple-500 flex-shrink-0"></span>
+                                Formulated cross-channel distribution funnels utilizing programmatic advertising
+                                structures.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1 h-1 rounded-full bg-purple-500 flex-shrink-0"></span>
+                                Assessed cost-per-click tracking trends using target market evaluation dashboards.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1 h-1 rounded-full bg-purple-500 flex-shrink-0"></span>
+                                Analyzed audience behavioral actions to isolate configuration flaws across content
+                                setups.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech Pillars Stacked at Base -->
+                    <div class="flex flex-wrap gap-1.5 mt-8 border-t border-zinc-900 pt-4">
+                        <span
+                            class="text-[9px] uppercase tracking-wider text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">Meta
+                            Ads</span>
+                        <span
+                            class="text-[9px] uppercase tracking-wider text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">Google
+                            Ads</span>
+                        <span
+                            class="text-[9px] uppercase tracking-wider text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">Analytics</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
     <!--Experience end-->
@@ -1111,23 +1238,23 @@
     <!-- Bento Certifications Section -->
     <section class="bento-section">
         <div class="max-w-5xl mx-auto mb-12 text-center">
-            <h2 class="text-3xl font-semibold tracking-tight mb-2">Featured Certifications</h2>
-            <p class="text-zinc-400 text-sm">Click any grid item to view full verification certificate document</p>
+            <h2 class="text-3xl serif text-purple-400">Featured Certifications</h2>
+            <p class="text-zinc-500 italic serif text-sm">Click any grid item to view full verification
+                certificate document</p>
         </div>
 
         <div class="bento-grid">
 
             <!-- Box 1: Wide Top Left (With Image) -->
-            <div class="bento-card wide-top has-img"
-                onclick="openBentoPop('src/img/certificate/certificate4.jpg')">
+            <div class="bento-card wide-top has-img" onclick="openBentoPop('src/img/certificate/certificate4.jpg')">
                 <div class="bento-img-wrapper">
                     <!-- Replace with your actual certificate image or project background -->
-                    <img src="src/img/certificate/certificate4.jpg"
-                        alt="Python Stack">
+                    <img src="src/img/certificate/certificate4.jpg" alt="Python Stack">
                 </div>
                 <div class="bento-text-content">
                     <h3>Python Full Stack Developer</h3>
-                    <p>SLA Institute — Comprehensive backend engineering, software design architectures, and active
+                    <p>SLA Institute — Comprehensive backend engineering, software design architectures, and
+                        active
                         system database integration parameters.</p>
                 </div>
             </div>
@@ -1137,12 +1264,12 @@
                 onclick="openBentoPop('src/img/certificate/certificate1.jpeg')">
                 <div class="bento-img-wrapper">
                     <!-- Replace with your actual certificate image or project background -->
-                    <img src="src/img/certificate/certificate1.jpeg"
-                        alt="Python Stack">
+                    <img src="src/img/certificate/certificate1.jpeg" alt="Python Stack">
                 </div>
                 <div class="bento-text-content">
                     <h3>Digital Marketing</h3>
-                    <p>Reliance Foundation — Performance framework strategies and asset metrics administration.</p>
+                    <p>Reliance Foundation — Performance framework strategies and asset metrics administration.
+                    </p>
                 </div>
             </div>
 
@@ -1151,12 +1278,12 @@
                 onclick="openBentoPop('src/img/certificate/certificate3.jpeg')">
                 <div class="bento-img-wrapper">
                     <!-- Replace with your actual certificate image or project background -->
-                    <img src="src/img/certificate/certificate3.jpeg"
-                        alt="Tally Prime 5.1">
+                    <img src="src/img/certificate/certificate3.jpeg" alt="Tally Prime 5.1">
                 </div>
                 <div class="bento-text-content">
                     <h3>Tally Prime 5.1</h3>
-                    <p>National Academy — Corporate ledger frameworks, asset workflows, and accounting structures.</p>
+                    <p>National Academy — Corporate ledger frameworks, asset workflows, and accounting
+                        structures.</p>
                 </div>
             </div>
 
@@ -1165,12 +1292,12 @@
                 onclick="openBentoPop('src/img/certificate/certificate2.jpeg')">
                 <div class="bento-img-wrapper">
                     <!-- Replace with your actual certificate image or project background -->
-                    <img src="src/img/certificate/certificate2.jpeg"
-                        alt="Technical SEO & Optimization">
+                    <img src="src/img/certificate/certificate2.jpeg" alt="Technical SEO & Optimization">
                 </div>
                 <div class="bento-text-content">
                     <h3>Technical SEO & Optimization</h3>
-                    <p>SEMrush Academy — Advanced organic indexing layouts, structural visibility audits, and scale
+                    <p>SEMrush Academy — Advanced organic indexing layouts, structural visibility audits, and
+                        scale
                         indexing search mechanics.</p>
                 </div>
             </div>
