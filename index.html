@@ -363,53 +363,73 @@
             }
         }
 
-        /* Marquee */
-        .marquee-track {
+        /* ===============================
+           PREMIUM SMOOTH SCROLL MARQUEE
+           =============================== */
+
+        /* The container wrappers holding the sets */
+        .marquee-track-left,
+        .marquee-track-right {
             display: flex;
             width: max-content;
-            animation: marquee-scroll 25s linear infinite;
-        }
-
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-
-        .marquee-set {
-            display: flex;
             align-items: center;
             gap: 0;
         }
 
+        /* Continuous linear animation loops */
+        .marquee-track-left {
+            animation: scroll-left 25s linear infinite;
+        }
+
+        .marquee-track-right {
+            animation: scroll-right 25s linear infinite;
+        }
+
+        /* Each group of items + stars */
+        .marquee-set {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        /* Formatting individual text items inside the marquee */
         .marquee-item {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #ffffff;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 0 35px;
             white-space: nowrap;
-            font-size: 0.75rem;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #71717a;
-            font-weight: 600;
-            transition: color 0.3s;
+            padding: 0 20px;
         }
 
-        .marquee-item:hover {
-            color: #A855F7;
-        }
-
+        /* Enforce icon spacing rules */
         .marquee-item i {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
         }
 
-        .marquee-divider {
-            color: #3f3f46;
-            font-size: 1rem;
-            padding: 0;
+        /* Precise control over the star divider graphic from image_84dbe8.png */
+        .marquee-sparkle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            color: rgba(168, 85, 247, 0.6);
+            /* Translucent signature purple theme tint */
+            flex-shrink: 0;
+            margin: 0 10px;
         }
 
-        @keyframes marquee-scroll {
+        .marquee-sparkle svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Infinite continuous loop keyframes */
+        @keyframes scroll-left {
             0% {
                 transform: translateX(0);
             }
@@ -417,6 +437,22 @@
             100% {
                 transform: translateX(-50%);
             }
+        }
+
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Pause tracking on hover for premium user interaction experience */
+        .overflow-hidden:hover .marquee-track-left,
+        .overflow-hidden:hover .marquee-track-right {
+            animation-play-state: paused;
         }
 
 
@@ -638,86 +674,171 @@
     </section>
 
     <!-- Scrolling Marquee -->
-    <!-- Marquee -->
-    <div class="py-6 border-t border-b border-zinc-900 overflow-hidden">
-        <div class="marquee-track">
+    <section class="py-12 bg-black overflow-hidden flex flex-col gap-6 relative select-none">
 
-            <div class="marquee-set">
-                <span class="marquee-item"><i class="fa-brands fa-google" style="color:#4285F4;"></i> Google Ads</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-brands fa-meta" style="color:#0081FB;"></i> Meta Ads</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-brands fa-python" style="color:#3776AB;"></i> Python</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-database" style="color:#00758F;"></i> MySQL</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-brands fa-figma" style="color:#A259FF;"></i> Figma</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-brands fa-instagram" style="color:#E1306C;"></i> Social
-                    Media</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-magnifying-glass-chart" style="color:#F97316;"></i>
-                    SEO</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-chart-bar" style="color:#F59E0B;"></i> Power BI</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-brands fa-google" style="color:#34A853;"></i> Analytics</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-pen-nib" style="color:#06B6D4;"></i> Canva</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-robot" style="color:#A855F7;"></i> Claude AI</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-robot" style="color:#10A37F;"></i> ChatGPT</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-chart-line" style="color:#E11D48;"></i> SEMrush</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-bullseye" style="color:#F97316;"></i> Ahrefs</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-layer-group" style="color:#8B5CF6;"></i> UX
-                    Research</span>
-                <span class="marquee-divider">|</span>
+        <!-- Track 1: Behind Row (Moves Left) -->
+        <div class="py-5 bg-zinc-950/40 border-y border-zinc-900/80 backdrop-blur-sm relative flex overflow-hidden">
+            <div class="marquee-track-left">
+                <div class="marquee-set">
+                    <span class="marquee-item"><i class="fa-brands fa-google text-blue-500"></i> Google Ads</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-brands fa-meta text-sky-500"></i> Meta Ads</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-brands fa-python text-yellow-500"></i> Python</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-database text-teal-500"></i> MySQL</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-brands fa-figma text-purple-500"></i> Figma</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-brands fa-instagram text-pink-500"></i> Social Media</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-magnifying-glass-chart text-orange-500"></i>
+                        SEO</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-set">
+                    <span class="marquee-item"><i class="fa-brands fa-google text-blue-500"></i> Google Ads</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-brands fa-meta text-sky-500"></i> Meta Ads</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-brands fa-python text-yellow-500"></i> Python</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-database text-teal-500"></i> MySQL</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-brands fa-figma text-purple-500"></i> Figma</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-brands fa-instagram text-pink-500"></i> Social Media</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-magnifying-glass-chart text-orange-500"></i>
+                        SEO</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+                </div>
             </div>
-
-            <!-- Duplicate for seamless loop -->
-            <div class="marquee-set">
-                <span class="marquee-item"><i class="fa-brands fa-google" style="color:#4285F4;"></i> Google Ads</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-brands fa-meta" style="color:#0081FB;"></i> Meta Ads</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-brands fa-python" style="color:#3776AB;"></i> Python</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-database" style="color:#00758F;"></i> MySQL</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-brands fa-figma" style="color:#A259FF;"></i> Figma</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-brands fa-instagram" style="color:#E1306C;"></i> Social
-                    Media</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-magnifying-glass-chart" style="color:#F97316;"></i>
-                    SEO</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-chart-bar" style="color:#F59E0B;"></i> Power BI</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-brands fa-google" style="color:#34A853;"></i> Analytics</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-pen-nib" style="color:#06B6D4;"></i> Canva</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-robot" style="color:#A855F7;"></i> Claude AI</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-robot" style="color:#10A37F;"></i> ChatGPT</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-chart-line" style="color:#E11D48;"></i> SEMrush</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-bullseye" style="color:#F97316;"></i> Ahrefs</span>
-                <span class="marquee-divider">|</span>
-                <span class="marquee-item"><i class="fa-solid fa-layer-group" style="color:#8B5CF6;"></i> UX
-                    Research</span>
-                <span class="marquee-divider">|</span>
-            </div>
-
         </div>
-    </div>
-    <!-- Marquee End -->
+
+        <!-- Track 2: Upper Row (Moves Opposite - Right) -->
+        <div class="py-5 bg-zinc-900/20 border-y border-zinc-800/50 relative flex overflow-hidden">
+            <div class="marquee-track-right">
+                <div class="marquee-set">
+                    <span class="marquee-item"><i class="fa-solid fa-chart-bar text-amber-500"></i> Power BI</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-pen-nib text-cyan-500"></i> Canva</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-robot text-purple-400"></i> Claude AI</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-robot text-emerald-500"></i> ChatGPT</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-chart-line text-rose-500"></i> SEMrush</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-bullseye text-orange-500"></i> Ahrefs</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-layer-group text-violet-500"></i> UX
+                        Research</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-set">
+                    <span class="marquee-item"><i class="fa-solid fa-chart-bar text-amber-500"></i> Power BI</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-pen-nib text-cyan-500"></i> Canva</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-robot text-purple-400"></i> Claude AI</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-robot text-emerald-500"></i> ChatGPT</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-chart-line text-rose-500"></i> SEMrush</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-bullseye text-orange-500"></i> Ahrefs</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+
+                    <span class="marquee-item"><i class="fa-solid fa-layer-group text-violet-500"></i> UX
+                        Research</span>
+                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                        </svg></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
 
     <!--Skills-->
