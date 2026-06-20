@@ -364,63 +364,76 @@
         }
 
         /* ===============================
-           PREMIUM SMOOTH SCROLL MARQUEE
+           INTERSECTING X-SHAPE MARQUEE
            =============================== */
 
-        /* The container wrappers holding the sets */
+        /* Behind background line styling (Empty) */
+        .marquee-cross-back {
+            transform: rotate(-3.5deg);
+            z-index: 10;
+            opacity: 0.35;
+            /* Keeps it subtle and moody like a shadow */
+        }
+
+        /* Front line containing your active work attributes */
+        .marquee-cross-front {
+            transform: rotate(2.5deg);
+            z-index: 20;
+            /* Places it cleanly over the back line */
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.95);
+        }
+
+        /* Continuous linear track layouts */
         .marquee-track-left,
         .marquee-track-right {
             display: flex;
             width: max-content;
             align-items: center;
-            gap: 0;
         }
 
-        /* Continuous linear animation loops */
         .marquee-track-left {
-            animation: scroll-left 25s linear infinite;
+            animation: scroll-left 28s linear infinite;
         }
 
         .marquee-track-right {
-            animation: scroll-right 25s linear infinite;
+            animation: scroll-right 22s linear infinite;
         }
 
-        /* Each group of items + stars */
         .marquee-set {
             display: flex;
             align-items: center;
             flex-shrink: 0;
         }
 
-        /* Formatting individual text items inside the marquee */
+        /* Pure dummy spacer width to animate the empty line cleanly */
+        .marquee-empty-space {
+            width: 2000px;
+            height: 20px;
+        }
+
+        /* Item formatting inside the active track */
         .marquee-item {
             font-family: 'Inter', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 500;
             color: #ffffff;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             white-space: nowrap;
-            padding: 0 20px;
+            padding: 0 28px;
         }
 
-        /* Enforce icon spacing rules */
-        .marquee-item i {
-            font-size: 1.25rem;
-        }
-
-        /* Precise control over the star divider graphic from image_84dbe8.png */
+        /* Beautiful crisp 4-point sparkle styling */
         .marquee-sparkle {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 14px;
             height: 14px;
-            color: rgba(168, 85, 247, 0.6);
-            /* Translucent signature purple theme tint */
+            color: rgba(168, 85, 247, 0.7);
+            /* Deep signature purple tint */
             flex-shrink: 0;
-            margin: 0 10px;
         }
 
         .marquee-sparkle svg {
@@ -428,7 +441,7 @@
             height: 100%;
         }
 
-        /* Infinite continuous loop keyframes */
+        /* Continuous Keyframe Math */
         @keyframes scroll-left {
             0% {
                 transform: translateX(0);
@@ -673,164 +686,97 @@
         </div>
     </section>
 
-    <!-- Scrolling Marquee -->
-    <section class="py-12 bg-black overflow-hidden flex flex-col gap-6 relative select-none">
+    <!-- Intersecting Premium Marquee Section -->
+    <section class="relative py-24 bg-black overflow-hidden select-none h-[220px] flex items-center justify-center">
 
-        <!-- Track 1: Behind Row (Moves Left) -->
-        <div class="py-5 bg-zinc-950/40 border-y border-zinc-900/80 backdrop-blur-sm relative flex overflow-hidden">
+        <!-- Track 1: Behind Line (Empty Plain Ribbon moving Left) -->
+        <div
+            class="absolute w-[120%] py-4 bg-zinc-900 border-y border-zinc-800 shadow-2xl marquee-cross-back flex overflow-hidden">
             <div class="marquee-track-left">
                 <div class="marquee-set">
-                    <span class="marquee-item"><i class="fa-brands fa-google text-blue-500"></i> Google Ads</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-brands fa-meta text-sky-500"></i> Meta Ads</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-brands fa-python text-yellow-500"></i> Python</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-solid fa-database text-teal-500"></i> MySQL</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-brands fa-figma text-purple-500"></i> Figma</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-brands fa-instagram text-pink-500"></i> Social Media</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-solid fa-magnifying-glass-chart text-orange-500"></i>
-                        SEO</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
+                    <span class="marquee-empty-space"></span>
                 </div>
-                <!-- Duplicate for seamless loop -->
                 <div class="marquee-set">
-                    <span class="marquee-item"><i class="fa-brands fa-google text-blue-500"></i> Google Ads</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-brands fa-meta text-sky-500"></i> Meta Ads</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-brands fa-python text-yellow-500"></i> Python</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-solid fa-database text-teal-500"></i> MySQL</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-brands fa-figma text-purple-500"></i> Figma</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-brands fa-instagram text-pink-500"></i> Social Media</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
-
-                    <span class="marquee-item"><i class="fa-solid fa-magnifying-glass-chart text-orange-500"></i>
-                        SEO</span>
-                    <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
-                        </svg></div>
+                    <span class="marquee-empty-space"></span>
                 </div>
             </div>
         </div>
 
-        <!-- Track 2: Upper Row (Moves Opposite - Right) -->
-        <div class="py-5 bg-zinc-900/20 border-y border-zinc-800/50 relative flex overflow-hidden">
+        <!-- Track 2: Upper Line (Icon Ribbon moving Right, crossing over) -->
+        <div
+            class="absolute w-[120%] py-5 bg-zinc-950 border-y border-purple-950/50 shadow-[0_0_50px_rgba(0,0,0,0.9)] marquee-cross-front flex overflow-hidden">
             <div class="marquee-track-right">
                 <div class="marquee-set">
-                    <span class="marquee-item"><i class="fa-solid fa-chart-bar text-amber-500"></i> Power BI</span>
+                    <span class="marquee-item"><i class="fa-brands fa-google text-blue-500"></i> Google Ads</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-pen-nib text-cyan-500"></i> Canva</span>
+                    <span class="marquee-item"><i class="fa-brands fa-meta text-sky-500"></i> Meta Ads</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-robot text-purple-400"></i> Claude AI</span>
+                    <span class="marquee-item"><i class="fa-brands fa-python text-yellow-500"></i> Python</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-robot text-emerald-500"></i> ChatGPT</span>
+                    <span class="marquee-item"><i class="fa-solid fa-database text-teal-500"></i> MySQL</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-chart-line text-rose-500"></i> SEMrush</span>
+                    <span class="marquee-item"><i class="fa-brands fa-figma text-purple-500"></i> Figma</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-bullseye text-orange-500"></i> Ahrefs</span>
+                    <span class="marquee-item"><i class="fa-brands fa-instagram text-pink-500"></i> Social Media</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-layer-group text-violet-500"></i> UX
-                        Research</span>
+                    <span class="marquee-item"><i class="fa-solid fa-magnifying-glass-chart text-orange-500"></i>
+                        SEO</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
                 </div>
-                <!-- Duplicate for seamless loop -->
+                <!-- Duplicate Set for Endless Continuous Loop -->
                 <div class="marquee-set">
-                    <span class="marquee-item"><i class="fa-solid fa-chart-bar text-amber-500"></i> Power BI</span>
+                    <span class="marquee-item"><i class="fa-brands fa-google text-blue-500"></i> Google Ads</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-pen-nib text-cyan-500"></i> Canva</span>
+                    <span class="marquee-item"><i class="fa-brands fa-meta text-sky-500"></i> Meta Ads</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-robot text-purple-400"></i> Claude AI</span>
+                    <span class="marquee-item"><i class="fa-brands fa-python text-yellow-500"></i> Python</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-robot text-emerald-500"></i> ChatGPT</span>
+                    <span class="marquee-item"><i class="fa-solid fa-database text-teal-500"></i> MySQL</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-chart-line text-rose-500"></i> SEMrush</span>
+                    <span class="marquee-item"><i class="fa-brands fa-figma text-purple-500"></i> Figma</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-bullseye text-orange-500"></i> Ahrefs</span>
+                    <span class="marquee-item"><i class="fa-brands fa-instagram text-pink-500"></i> Social Media</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
 
-                    <span class="marquee-item"><i class="fa-solid fa-layer-group text-violet-500"></i> UX
-                        Research</span>
+                    <span class="marquee-item"><i class="fa-solid fa-magnifying-glass-chart text-orange-500"></i>
+                        SEO</span>
                     <div class="marquee-sparkle"><svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
                         </svg></div>
