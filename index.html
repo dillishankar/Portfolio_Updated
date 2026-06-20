@@ -368,11 +368,18 @@
            =============================== */
 
         /* Behind background line styling (Empty) */
+        /* Behind background line styling (Now fully visible) */
         .marquee-cross-back {
             transform: rotate(-3.5deg);
             z-index: 10;
-            opacity: 0.35;
-            /* Keeps it subtle and moody like a shadow */
+            background-color: #1e1e24 !important;
+            /* Premium dark-gray ribbon color */
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            /* Crisp subtle top edge */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            /* Crisp subtle bottom edge */
+            opacity: 0.9;
+            /* Keeps it perfectly visible behind the top ribbon */
         }
 
         /* Front line containing your active work attributes */
