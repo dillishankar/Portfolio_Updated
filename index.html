@@ -476,155 +476,182 @@
         }
 
 
-        .cert-card {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            background: #0a0a0a;
-            border: 1px solid #222;
-            border-radius: 16px;
+        /* ==========================================
+   EXACT BENTO GRID LAYOUT (image_7a63dd.png)
+   ========================================== */
+
+        .bento-section {
+            padding: 6rem 2rem;
+            background-color: #000000;
+            /* Keeps your dark portfolio aesthetic */
+            color: #ffffff;
+        }
+
+        /* The Bento Grid Container */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Desktop sizing rules matching image_7a63dd.png */
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            /* Alternating wide spans */
+            .bento-card.wide-top {
+                grid-column: span 2;
+            }
+
+            .bento-card.small-top {
+                grid-column: span 1;
+            }
+
+            .bento-card.small-bottom {
+                grid-column: span 1;
+            }
+
+            .bento-card.wide-bottom {
+                grid-column: span 2;
+            }
+        }
+
+        /* Base Bento Card Styles */
+        .bento-card {
+            position: relative;
+            border-radius: 24px;
+            /* Distinctly rounded corners from image */
             overflow: hidden;
-            opacity: 0;
-            transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.75s ease,
-                border-color 0.3s,
-                box-shadow 0.3s;
-        }
-
-        .cert-card.from-left {
-            transform: translateX(-90px);
-        }
-
-        .cert-card.from-right {
-            transform: translateX(90px);
-        }
-
-        .cert-card.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .cert-card:hover {
-            border-color: #A855F7;
-            box-shadow: 0 8px 32px rgba(168, 85, 247, 0.22);
-        }
-
-        .cert-img-wrap {
-            flex-shrink: 0;
-            width: 160px;
-            height: 130px;
-            background: #fff;
-            overflow: hidden;
+            height: 340px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.5rem;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .cert-img-wrap img {
+        /* Subtle interactive lift */
+        .bento-card:hover {
+            transform: translateY(-4px);
+            border-color: #F97316;
+            /* Clean orange accent border on hover */
+        }
+
+        /* Specific background colors matching the image palette */
+        .bg-bento-light {
+            background-color: #EFEAE2;
+            color: #111111;
+        }
+
+        .bg-bento-brown {
+            background-color: #BAA694;
+            color: #ffffff;
+        }
+
+        .bg-bento-green {
+            background-color: #55664E;
+            color: #ffffff;
+        }
+
+        /* Image styling inside the cards */
+        .bento-img-wrapper {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .bento-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
-        .cert-card:hover .cert-img-wrap img {
-            transform: scale(1.08);
+        .bento-card:hover .bento-img-wrapper img {
+            transform: scale(1.04);
         }
 
-        .cert-body {
-            flex: 1;
-            padding: 22px 22px 22px 24px;
+        /* Subtle dark gradient overlay for cards that have background images */
+        .bento-card.has-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+            z-index: 2;
         }
 
-        .cert-issuer-label {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: #52525b;
-            margin-bottom: 5px;
+        /* Typography Stack from image_7a63dd.png */
+        .bento-text-content {
+            position: relative;
+            z-index: 3;
+            max-width: 85%;
         }
 
-        .cert-title-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: #A855F7;
-            margin-bottom: 6px;
-            line-height: 1.35;
+        .bento-text-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.02em;
         }
 
-        .cert-desc-text {
-            font-size: 0.78rem;
-            color: #71717a;
-            line-height: 1.55;
-            margin-bottom: 10px;
+        /* Light background card needs dark text overrides */
+        .bg-bento-light .bento-text-content h3 {
+            color: #111111;
         }
 
-        .cert-tag {
-            display: inline-block;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border: 1px solid #3f3f46;
-            color: #71717a;
-            padding: 3px 10px;
-            border-radius: 999px;
+        .bg-bento-light .bento-text-content p {
+            color: #555555;
         }
 
-        .cert-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: #1a1a1a;
-            width: 56px;
-            text-align: center;
-            flex-shrink: 0;
-            transition: color 0.3s;
-            padding: 0 4px;
+        .bento-text-content p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.8;
+            line-height: 1.4;
+            font-weight: 300;
         }
 
-        .cert-card:hover .cert-num {
-            color: #3b0764;
-        }
-
-        .cert-arrow {
-            flex-shrink: 0;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 1px solid #3f3f46;
-            display: flex;
+        /* ==========================================
+   SIMPLE LIGHTBOX POPUP SYSTEM
+   ========================================== */
+        #bentoPopOverlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 99999;
             align-items: center;
             justify-content: center;
-            margin-right: 22px;
-            color: #52525b;
-            font-size: 14px;
-            transition: all 0.3s;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
 
-        .cert-card:hover .cert-arrow {
-            background: #A855F7;
-            border-color: #A855F7;
-            color: #fff;
-            transform: translateX(4px);
+        #bentoPopOverlay.show {
+            opacity: 1;
         }
 
-        @media (max-width: 640px) {
-            .cert-img-wrap {
-                width: 100px;
-                height: 100px;
-            }
+        .bento-pop-img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transform: scale(0.95);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            object-fit: contain;
+        }
 
-            .cert-num {
-                font-size: 2rem;
-                width: 36px;
-            }
-
-            .cert-body {
-                padding: 16px 12px 16px 12px;
-            }
-
-            .cert-title-text {
-                font-size: 0.95rem;
-            }
+        #bentoPopOverlay.show .bento-pop-img {
+            transform: scale(1);
         }
     </style>
 </head>
@@ -667,13 +694,13 @@
         </p>
 
         <div class="flex flex-col items-center gap-8">
-            <a href="Dillishankar.k-DA-Resume.pdf" download="Dilli_Shankar_CV.pdf" class="inline-block">
+            <a href="Dillishankar.k-DA-Resume.pdf" download="Dilli_Shankar_CV.pdf" class="inline-block group">
                 <button
                     class="purple-gradient px-8 py-3 rounded-full font-semibold flex items-center gap-3 hover:opacity-90 transition">
                     Download CV
                     <span
                         class="bg-white text-purple-600 rounded-full w-6 h-6 flex items-center justify-center text-xs">
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-arrow-up transition-transform duration-300 group-hover:rotate-90"></i>
                     </span>
                 </button>
             </a>
@@ -1081,80 +1108,65 @@
     <!--Experience end-->
 
     <!--Certicate-->
-    <section id="certifications" class="py-20 px-6 max-w-4xl mx-auto">
-        <h2 class="text-3xl serif text-center text-purple-400 mb-2">What Validated Me</h2>
-        <p class="text-zinc-300 text-center mb-12 text-lg italic serif">Things I did when the 'what if I learned this'
-            kicked in.</p>
+    <!-- Bento Certifications Section -->
+    <section class="bento-section">
+        <div class="max-w-5xl mx-auto mb-12 text-center">
+            <h2 class="text-3xl font-semibold tracking-tight mb-2">Featured Certifications</h2>
+            <p class="text-zinc-400 text-sm">Click any grid item to view full verification certificate document</p>
+        </div>
 
-        <div style="display:flex; flex-direction:column; gap:24px;" id="certList">
+        <div class="bento-grid">
 
-            <!-- Card 01 — slides from LEFT -->
-            <div class="cert-card from-left">
-                <div class="cert-num">01</div>
-                <div class="cert-img-wrap">
-                    <img src="p1.jpeg" alt="Digital Marketing Certificate">
+            <!-- Box 1: Wide Top Left (With Image) -->
+            <div class="bento-card wide-top has-img"
+                onclick="openBentoPop('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1200')">
+                <div class="bento-img-wrapper">
+                    <!-- Replace with your actual certificate image or project background -->
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800"
+                        alt="Python Stack">
                 </div>
-                <div class="cert-body">
-                    <p class="cert-issuer-label">Reliance Foundation</p>
-                    <h4 class="cert-title-text">Digital Marketing</h4>
-                    <p class="cert-desc-text">Completed Fundamentals of Digital Marketing in a course in the
-                        certification</p>
-                    <span class="cert-tag">Digital Marketing</span>
+                <div class="bento-text-content">
+                    <h3>Python Full Stack Developer</h3>
+                    <p>SLA Institute — Comprehensive backend engineering, software design architectures, and active
+                        system database integration parameters.</p>
                 </div>
-                <div class="cert-arrow">&#8594;</div>
             </div>
 
-            <!-- Card 02 — slides from RIGHT -->
-            <div class="cert-card from-right">
-                <div class="cert-num">02</div>
-                <div class="cert-img-wrap">
-                    <img src="p2.jpeg" alt="Social Media Marketing Certificate">
+            <!-- Box 2: Small Top Right (Plain Light Cream Background) -->
+            <div class="bento-card small-top bg-bento-light"
+                onclick="openBentoPop('https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=1200')">
+                <div class="bento-text-content">
+                    <h3>Digital Marketing</h3>
+                    <p>Reliance Foundation — Performance framework strategies and asset metrics administration.</p>
                 </div>
-                <div class="cert-body">
-                    <p class="cert-issuer-label">Hubspot Academy</p>
-                    <h4 class="cert-title-text">Social Media Marketing</h4>
-                    <p class="cert-desc-text">Completed Fundamentals of Social Media Marketing in a course in the
-                        certification</p>
-                    <span class="cert-tag">Social Media</span>
-                </div>
-                <div class="cert-arrow">&#8594;</div>
             </div>
 
-            <!-- Card 03 — slides from LEFT -->
-            <div class="cert-card from-left">
-                <div class="cert-num">03</div>
-                <div class="cert-img-wrap">
-                    <img src="p3.jpeg" alt="Technical SEO Certificate">
+            <!-- Box 3: Small Bottom Left (Muted Earthy Brown Background) -->
+            <div class="bento-card small-bottom bg-bento-brown"
+                onclick="openBentoPop('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1200')">
+                <div class="bento-text-content">
+                    <h3>Tally Prime 5.1</h3>
+                    <p>National Academy — Corporate ledger frameworks, asset workflows, and accounting structures.</p>
                 </div>
-                <div class="cert-body">
-                    <p class="cert-issuer-label">SEMrush Academy</p>
-                    <h4 class="cert-title-text">Technical SEO</h4>
-                    <p class="cert-desc-text">Completed Technical SEO course in SEMrush Academy Certification</p>
-                    <span class="cert-tag">SEO</span>
-                </div>
-                <div class="cert-arrow">&#8594;</div>
             </div>
 
-            <!-- Card 04 — slides from RIGHT -->
-            <div class="cert-card from-right">
-                <div class="cert-num">04</div>
-                <div class="cert-img-wrap">
-                    <img src="p4.jpg" alt="Python Full Stack Certificate">
+            <!-- Box 4: Wide Bottom Right (Earthy Green Background with Face Asset) -->
+            <div class="bento-card wide-bottom bg-bento-green"
+                onclick="openBentoPop('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200')">
+                <div class="bento-text-content">
+                    <h3>Technical SEO & Optimization</h3>
+                    <p>SEMrush Academy — Advanced organic indexing layouts, structural visibility audits, and scale
+                        indexing search mechanics.</p>
                 </div>
-                <div class="cert-body">
-                    <p class="cert-issuer-label">SLA Institute</p>
-                    <h4 class="cert-title-text">Python Full Stack</h4>
-                    <p class="cert-desc-text">Completed Python Full Stack course in SLA Institute Certification</p>
-                    <span class="cert-tag">Python</span>
-                </div>
-                <div class="cert-arrow">&#8594;</div>
             </div>
 
         </div>
     </section>
-    <!--Certicate end-->
 
-
+    <!-- Lightbox Modal Popup Structure -->
+    <div id="bentoPopOverlay" onclick="closeBentoPop()">
+        <img id="bentoPopTarget" src="" alt="Certificate Document Preview" class="bento-pop-img">
+    </div>
     <!--Magic code -->
 
     <section id="beyond-design" class="py-20 border-t border-zinc-900 overflow-hidden">

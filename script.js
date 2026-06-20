@@ -27,3 +27,42 @@ document.addEventListener('DOMContentLoaded', () => {
     certCards.forEach(card => certObserver.observe(card));
 
 });
+
+// Modal functionality for certificate images
+// Open Bento Popup Function
+function openBentoPop(imageSrc) {
+    const overlay = document.getElementById('bentoPopOverlay');
+    const targetImg = document.getElementById('bentoPopTarget');
+    
+    // Set clicked image target source URL
+    targetImg.src = imageSrc;
+    
+    // Show overlay structural block
+    overlay.style.display = 'flex';
+    
+    // Smooth opacity fade in entry
+    setTimeout(() => {
+        overlay.classList.add('show');
+    }, 20);
+    
+    // Lock background scroll interaction states
+    document.body.style.overflow = 'hidden';
+}
+
+// Close Bento Popup Function
+function closeBentoPop() {
+    const overlay = document.getElementById('bentoPopOverlay');
+    
+    overlay.classList.remove('show');
+    
+    // Wait for the opacity fade animation transition duration to end before display none
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        document.body.style.overflow = ''; // Unblock page scroll behavior
+    }, 250);
+}
+
+// Allow closing with standard hardware escape key press actions
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeBentoPop();
+});
